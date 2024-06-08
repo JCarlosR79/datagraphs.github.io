@@ -59,4 +59,14 @@ body {
 svg {
     width: 100%;
     height: 400px; /* Altura del gráfico */
+    transform: rotate(-90deg); /* Rotar el gráfico para que empiece desde arriba */
+}
+
+/* Estilos para las secciones del gráfico */
+.slice {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.slice:hover {
+    transform: scale(1.1);
 }

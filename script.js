@@ -1,31 +1,4 @@
-// script.js
-
-// Setup SVG dimensions
-const width = document.querySelector("svg").clientWidth;
-const height = document.querySelector("svg").clientHeight;
-const radius = Math.min(width, height) / 2;
-
-// Create SVG container and center it
-const svg = d3.select("svg")
-    .attr("width", width) // Ancho del SVG
-    .attr("height", height) // Alto del SVG
-    .append("g") // Añadir un grupo 'g' dentro del SVG
-    .attr("transform", `translate(${width / 2}, ${height / 2})`); // Mover el grupo 'g' al centro del SVG
-
-// Create a color scale using D3's categorical color scheme
-const color = d3.scaleOrdinal(d3.schemeCategory10);
-
-// Define arc generator with inner and outer radius
-const arc = d3.arc()
-    .innerRadius(0) // Radio interno del arco (0 para gráfico de pastel)
-    .outerRadius(radius); // Radio externo del arco
-
-// Define pie generator to compute the angles for each slice
-const pie = d3.pie()
-    .value(d => d.value) // Valor de cada porción basado en la propiedad 'value'
-    .sort(null); // No ordenar las porciones
-
-// Data (replacing CSV loading)
+// Datos del gráfico
 const data = [
     { label: 'A', value: 30 },
     { label: 'B', value: 70 },
@@ -33,28 +6,45 @@ const data = [
     { label: 'D', value: 85 }
 ];
 
-// Append arcs for each slice of the pie chart
-const arcs = svg.selectAll(".arc")
-    .data(pie(data)) // Vincular datos procesados con los elementos del DOM
-    .enter().append("g") // Crear un grupo 'g' para cada porción
-    .attr("class", "arc"); // Asignar clase 'arc' a cada grupo
+// Obtener el SVG
+const svg = document.querySelector('svg');
+const total = data.reduce((acc, val) => acc + val.value, 0);
+let cumulativeValue = 0;
 
-// Append path elements to each group and set their attributes
-arcs.append("path")
-    .attr("d", arc) // Definir la forma del arco usando el generador de arcos
-    .attr("fill", d => color(d.data.label)) // Asignar color basado en la etiqueta de datos
-    .each(function(d) { this._current = d; }); // Almacenar los ángulos iniciales
+// Crear las secciones del gráfico
+data.forEach((d, i) => {
+    const sliceAngle = (d.value / total) * 360;
+    const [startX, startY] = getCoordinatesForAngle(cumulativeValue);
+    cumulativeValue += sliceAngle;
+    const [endX, endY] = getCoordinatesForAngle(cumulativeValue);
+    const largeArcFlag = sliceAngle > 180 ? 1 : 0;
+    const pathData = [
+        `M 16 16`,
+        `L ${startX} ${startY}`,
+        `A 16 16 0 ${largeArcFlag} 1 ${endX} ${endY}`,
+        `Z`
+    ].join(' ');
 
-// Function to handle the transition animation
-function arcTween(a) {
-    const i = d3.interpolate(this._current, a); // Interpolador entre ángulos actuales y nuevos
-    this._current = i(0); // Actualizar ángulos actuales
-    return t => arc(i(t)); // Devolver el valor interpolado para el tiempo 't'
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', pathData);
+    path.setAttribute('fill', getRandomColor());
+    path.classList.add('slice');
+    svg.appendChild(path);
+});
+
+// Obtener las coordenadas para un ángulo dado
+function getCoordinatesForAngle(angle) {
+    const x = 16 + 16 * Math.cos((angle - 90) * Math.PI / 180);
+    const y = 16 + 16 * Math.sin((angle - 90) * Math.PI / 180);
+    return [x, y];
 }
 
-// Update arcs with a transition animation
-svg.selectAll("path")
-    .data(pie(data)) // Volver a vincular los datos con los elementos del DOM
-    .transition() // Iniciar transición
-    .duration(1000) // Duración de la transición en milisegundos
-    .attrTween("d", arcTween); // Aplicar interpolación a los atributos 'd'
+// Generar un color aleatorio
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
