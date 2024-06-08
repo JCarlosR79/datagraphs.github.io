@@ -3,22 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Page with Pie Chart</title>
+    <title>Web Page with Interactive Chart</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Enlace a Google Fonts -->
 </head>
 <body>
     <div class="container">
         <div class="header"></div>
         <h1 class="title">Lorem Ipsum Dolor Sit Amet</h1>
-        <div class="content">
+        <div class="intro">
+            <h2>Lorem Ipsum</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae odio fringilla aliquam. Donec vehicula elit eget dolor fermentum, at pharetra arcu varius. Aliquam erat volutpat.</p>
-            <svg viewBox="0 0 32 32"></svg>
         </div>
-        <div class="yellow-text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae odio fringilla aliquam. Donec vehicula elit eget dolor fermentum, at pharetra arcu varius. Aliquam erat volutpat. Curabitur vehicula libero ut libero aliquam, non consectetur lectus blandit. Maecenas a ultricies neque. Integer vel libero magna.</p>
+        <h4 class="chart-title">Lorem Ipsum Dolor Sit Amet</h4>
+        <h5 class="chart-description">Lorem Ipsum Dolor Sit Amet</h5>
+        <div class="chart-container">
+            <svg viewBox="0 0 500 500"></svg>
         </div>
-        <div class="footer">Footer Content</div>
+        <div class="additional-text">
+            <h3>Lorem Ipsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non urna vitae odio fringilla aliquam. Donec vehicula elit eget dolor fermentum, at pharetra arcu varius. Aliquam erat volutpat.</p>
+        </div>
+        <div class="footer">
+            <h6>Footer Content</h6>
+        </div>
     </div>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,50 +1,82 @@
+// script.js
+
+// Dimensiones y configuración del gráfico
+const width = 500;
+const height = 500;
+const outerRadius = height / 2 - 10;
+const innerRadius = outerRadius * 0.75;
+const tau = 2 * Math.PI;
+
+// Crear contenedor SVG y centrarlo
+const svg = d3.select("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+    .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+// Crear escala de colores
+const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+// Definir función de arco
+const arc = d3.arc()
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius)
+    .startAngle(0);
+
 // Datos del gráfico
 const data = [
-    { label: 'A', value: 30 },
-    { label: 'B', value: 70 },
-    { label: 'C', value: 45 },
-    { label: 'D', value: 85 }
+    { label: 'A', value: 0.3 },
+    { label: 'B', value: 0.7 },
+    { label: 'C', value: 0.45 },
+    { label: 'D', value: 0.85 }
 ];
 
-// Obtener el SVG
-const svg = document.querySelector('svg');
-const total = data.reduce((acc, val) => acc + val.value, 0);
-let cumulativeValue = 0;
+// Crear fondo del arco
+svg.append("path")
+    .datum({ endAngle: tau })
+    .style("fill", "#ddd")
+    .attr("d", arc);
 
-// Crear las secciones del gráfico
-data.forEach((d, i) => {
-    const sliceAngle = (d.value / total) * 360;
-    const [startX, startY] = getCoordinatesForAngle(cumulativeValue);
-    cumulativeValue += sliceAngle;
-    const [endX, endY] = getCoordinatesForAngle(cumulativeValue);
-    const largeArcFlag = sliceAngle > 180 ? 1 : 0;
-    const pathData = [
-        `M 16 16`,
-        `L ${startX} ${startY}`,
-        `A 16 16 0 ${largeArcFlag} 1 ${endX} ${endY}`,
-        `Z`
-    ].join(' ');
+// Crear arcos con datos
+const arcs = svg.selectAll(".arc")
+    .data(data)
+    .enter().append("g")
+    .attr("class", "arc");
 
-    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    path.setAttribute('d', pathData);
-    path.setAttribute('fill', getRandomColor());
-    path.classList.add('slice');
-    svg.appendChild(path);
-});
-
-// Obtener las coordenadas para un ángulo dado
-function getCoordinatesForAngle(angle) {
-    const x = 16 + 16 * Math.cos((angle - 90) * Math.PI / 180);
-    const y = 16 + 16 * Math.sin((angle - 90) * Math.PI / 180);
-    return [x, y];
-}
-
-// Generar un color aleatorio
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+// Añadir los arcos al gráfico
+arcs.append("path")
+    .attr("d", d => arc({ endAngle: d.value * tau }))
+    .attr("fill", d => color(d.label))
+    .each(function(d) { this._current = d; })
+    .on("mouseover", function(event, d) {
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("d", d3.arc()
+                .innerRadius(innerRadius)
+                .outerRadius(outerRadius + 10)
+                .startAngle(0)
+                .endAngle(d.value * tau)
+            );
+        svg.append("text")
+            .attr("class", "tooltip")
+            .attr("x", 0)
+            .attr("y", -outerRadius - 20)
+            .attr("text-anchor", "middle")
+            .style("font-family", "Roboto")
+            .style("font-size", "14px")
+            .style("fill", "white")
+            .text(d.label + ": " + (d.value * 100).toFixed(1) + "%");
+    })
+    .on("mouseout", function(event, d) {
+        d3.select(this)
+            .transition()
+            .duration(200)
+            .attr("d", d3.arc()
+                .innerRadius(innerRadius)
+                .outerRadius(outerRadius)
+                .startAngle(0)
+                .endAngle(d.value * tau)
+            );
+        svg.selectAll(".tooltip").remove();
+    });

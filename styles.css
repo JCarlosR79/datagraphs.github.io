@@ -1,8 +1,8 @@
 /* Estilos generales del cuerpo */
 body {
-    background-color: black; /* Fondo negro */
+    background-color: #011826; /* Fondo negro */
     color: white; /* Texto blanco */
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -22,28 +22,62 @@ body {
 /* Estilos del encabezado */
 .header {
     grid-column: span 7; /* Ocupa las 7 columnas */
-    background-color: white; /* Fondo blanco */
-    height: 50px; /* Altura del rectángulo */
+    background-color: #224459; /* Fondo del rectángulo */
+    height: 300px; /* Altura del rectángulo */
 }
 
 /* Estilos del título */
 .title {
     grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
     text-align: center; /* Centrar el texto */
+    color: #C2E0F2; /* Color del texto */
+    font-size: 2em; /* Tamaño del texto */
+    text-transform: uppercase; /* Texto en mayúsculas */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
 
-/* Estilos del contenido */
-.content {
+/* Estilos de la introducción */
+.intro {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
     text-align: center; /* Centrar el texto */
+    color: white; /* Color del texto */
+    font-size: 1.5em; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    margin: 10px 0; /* Márgenes superior e inferior */
 }
 
-/* Estilos del párrafo en amarillo */
-.yellow-text {
+/* Estilos del gráfico */
+.chart-title {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    color: yellow; /* Texto amarillo */
     text-align: center; /* Centrar el texto */
+    color: white; /* Color del texto */
+    font-size: 1.2em; /* Tamaño del texto */
+    font-weight: medium; /* Texto en medio */
+    margin: 10px 0; /* Márgenes superior e inferior */
+}
+
+.chart-description {
+    grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
+    text-align: center; /* Centrar el texto */
+    color: white; /* Color del texto */
+    font-size: 1em; /* Tamaño del texto */
+    font-weight: medium; /* Texto en medio */
+    margin: 10px 0; /* Márgenes superior e inferior */
+}
+
+.chart-container {
+    grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
+    text-align: center; /* Centrar el texto */
+    margin: 10px 0; /* Márgenes superior e inferior */
+}
+
+/* Estilos del texto adicional */
+.additional-text {
+    grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
+    text-align: center; /* Centrar el texto */
+    color: white; /* Color del texto */
+    font-size: 1.5em; /* Tamaño del texto */
+    font-weight: regular; /* Texto regular */
     margin: 10px 0; /* Márgenes superior e inferior */
 }
 
@@ -51,22 +85,8 @@ body {
 .footer {
     grid-column: span 7; /* Ocupa las 7 columnas */
     text-align: center; /* Centrar el texto */
+    color: white; /* Color del texto */
+    font-size: 1em; /* Tamaño del texto */
     margin-top: auto; /* Empujar el footer hacia abajo */
     padding: 10px; /* Padding interno */
-}
-
-/* Estilos del SVG */
-svg {
-    width: 100%;
-    height: 400px; /* Altura del gráfico */
-    transform: rotate(-90deg); /* Rotar el gráfico para que empiece desde arriba */
-}
-
-/* Estilos para las secciones del gráfico */
-.slice {
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-.slice:hover {
-    transform: scale(1.1);
 }
