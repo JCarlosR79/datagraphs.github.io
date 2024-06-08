@@ -1,8 +1,8 @@
 // script.js
 
 // Setup SVG dimensions
-const width = 800;
-const height = 600;
+const width = document.querySelector("svg").clientWidth;
+const height = document.querySelector("svg").clientHeight;
 const radius = Math.min(width, height) / 2;
 
 // Create SVG container and center it

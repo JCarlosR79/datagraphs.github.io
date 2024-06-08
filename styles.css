@@ -1,0 +1,54 @@
+/* General body styles */
+body {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Container for grid layout */
+.container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columnas iguales */
+    gap: 10px;
+    padding: 10px;
+    height: 100%;
+    box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+}
+
+/* Header styles */
+.header {
+    grid-column: span 7; /* Ocupa las 7 columnas */
+    background-color: white; /* Fondo blanco */
+    height: 50px; /* Altura del rectángulo */
+}
+
+/* Title styles */
+.title {
+    grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
+    text-align: center; /* Centrar el texto */
+    margin: 20px 0; /* Márgenes superior e inferior */
+}
+
+/* Content styles */
+.content {
+    grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Footer styles */
+.footer {
+    grid-column: span 7; /* Ocupa las 7 columnas */
+    text-align: center; /* Centrar el texto */
+    margin-top: auto; /* Empujar el footer hacia abajo */
+    padding: 10px; /* Padding interno */
+}
+
+/* SVG styles */
+svg {
+    width: 100%;
+    height: 400px; /* Altura del gráfico */
+}
