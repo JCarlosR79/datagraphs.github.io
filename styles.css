@@ -1,7 +1,7 @@
 /* Estilos generales del cuerpo */
 body {
     background-color: #011826; /* Fondo negro */
-    color: white; /* Texto blanco */
+    color: whitesmoke; /* Texto blanco */
     font-family: 'Roboto', sans-serif;
     margin: 0;
     display: flex;
@@ -31,7 +31,7 @@ body {
     grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
     text-align: center; /* Centrar el texto */
     color: #C2E0F2; /* Color del texto */
-    font-size: 2em; /* Tamaño del texto */
+    font-size: 3em; /* Tamaño del texto */
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
@@ -51,7 +51,7 @@ body {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
-    font-size: 1.2em; /* Tamaño del texto */
+    font-size: 1em; /* Tamaño del texto */
     font-weight: medium; /* Texto en medio */
     margin: 10px 0; /* Márgenes superior e inferior */
 }
@@ -76,7 +76,7 @@ body {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
-    font-size: 1.5em; /* Tamaño del texto */
+    font-size: 1em; /* Tamaño del texto */
     font-weight: regular; /* Texto regular */
     margin: 10px 0; /* Márgenes superior e inferior */
 }
@@ -86,7 +86,7 @@ body {
     grid-column: span 7; /* Ocupa las 7 columnas */
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
-    font-size: 1em; /* Tamaño del texto */
+    font-size: 0.5em; /* Tamaño del texto */
     margin-top: auto; /* Empujar el footer hacia abajo */
     padding: 10px; /* Padding interno */
 }

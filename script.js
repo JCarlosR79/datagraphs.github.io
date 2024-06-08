@@ -65,7 +65,7 @@ arcs.append("path")
             .attr("text-anchor", "middle")
             .style("font-family", "Roboto")
             .style("font-size", "14px")
-            .style("fill", "white")
+            .style("fill", "#C2E0F2")
             .text(d.label + ": " + (d.value * 100).toFixed(1) + "%");
     })
     .on("mouseout", function(event, d) {
