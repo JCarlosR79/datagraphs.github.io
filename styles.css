@@ -22,14 +22,15 @@ body {
 /* Estilos del encabezado */
 .header {
     grid-column: span 7; /* Ocupa las 7 columnas */
-    background-color: #66FCF1; /* Fondo blanco */
-    height: 100px; /* Altura del rectángulo */
+    background-color: #66FCF1; /* Color */
+    height: 150px; /* Altura del rectángulo */
 }
 
 /* Estilos del título */
 .title {
     grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
     text-align: center; /* Centrar el texto */
+    color: #66FCF1; /* Color */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
 
