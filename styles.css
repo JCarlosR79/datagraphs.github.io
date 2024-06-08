@@ -23,7 +23,7 @@ body {
 .header {
     grid-column: span 7; /* Ocupa las 7 columnas */
     background-color: #66FCF1; /* Fondo blanco */
-    height: 50px; /* Altura del rectángulo */
+    height: 100px; /* Altura del rectángulo */
 }
 
 /* Estilos del título */
