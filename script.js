@@ -1,5 +1,3 @@
-// script.js
-
 // Setup SVG dimensions
 const width = document.querySelector("svg").clientWidth;
 const height = document.querySelector("svg").clientHeight;
