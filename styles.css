@@ -1,6 +1,6 @@
 /* Estilos generales del cuerpo */
 body {
-    background-color: #1F2833; /* Fondo negro */
+    background-color: black; /* Fondo negro */
     color: white; /* Texto blanco */
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,29 +22,27 @@ body {
 /* Estilos del encabezado */
 .header {
     grid-column: span 7; /* Ocupa las 7 columnas */
-    background-color: #66FCF1; /* Color */
-    height: 150px; /* Altura del rectángulo */
+    background-color: white; /* Fondo blanco */
+    height: 50px; /* Altura del rectángulo */
 }
 
 /* Estilos del título */
 .title {
     grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
     text-align: center; /* Centrar el texto */
-    color: #66FCF1; /* Color */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
 
-/* Estilo de introducción */
+/* Estilos del contenido */
 .content {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    color: #C5C6C7; 
     text-align: center; /* Centrar el texto */
 }
 
-/* Estilos del párrafo */
+/* Estilos del párrafo en amarillo */
 .yellow-text {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    color: whitesmoke; /* Texto amarillo */
+    color: yellow; /* Texto amarillo */
     text-align: center; /* Centrar el texto */
     margin: 10px 0; /* Márgenes superior e inferior */
 }

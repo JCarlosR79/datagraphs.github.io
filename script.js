@@ -1,3 +1,5 @@
+// script.js
+
 // Setup SVG dimensions
 const width = document.querySelector("svg").clientWidth;
 const height = document.querySelector("svg").clientHeight;
@@ -23,36 +25,36 @@ const pie = d3.pie()
     .value(d => d.value) // Valor de cada porción basado en la propiedad 'value'
     .sort(null); // No ordenar las porciones
 
-// Load CSV data
-d3.csv("data.csv").then(data => {
-    // Convert data values from strings to numbers
-    data.forEach(d => {
-        d.value = +d.value; // Convertir 'value' de cadena a número
-    });
+// Data (replacing CSV loading)
+const data = [
+    { label: 'A', value: 30 },
+    { label: 'B', value: 70 },
+    { label: 'C', value: 45 },
+    { label: 'D', value: 85 }
+];
 
-    // Append arcs for each slice of the pie chart
-    const arcs = svg.selectAll(".arc")
-        .data(pie(data)) // Vincular datos procesados con los elementos del DOM
-        .enter().append("g") // Crear un grupo 'g' para cada porción
-        .attr("class", "arc"); // Asignar clase 'arc' a cada grupo
+// Append arcs for each slice of the pie chart
+const arcs = svg.selectAll(".arc")
+    .data(pie(data)) // Vincular datos procesados con los elementos del DOM
+    .enter().append("g") // Crear un grupo 'g' para cada porción
+    .attr("class", "arc"); // Asignar clase 'arc' a cada grupo
 
-    // Append path elements to each group and set their attributes
-    arcs.append("path")
-        .attr("d", arc) // Definir la forma del arco usando el generador de arcos
-        .attr("fill", d => color(d.data.label)) // Asignar color basado en la etiqueta de datos
-        .each(function(d) { this._current = d; }); // Almacenar los ángulos iniciales
+// Append path elements to each group and set their attributes
+arcs.append("path")
+    .attr("d", arc) // Definir la forma del arco usando el generador de arcos
+    .attr("fill", d => color(d.data.label)) // Asignar color basado en la etiqueta de datos
+    .each(function(d) { this._current = d; }); // Almacenar los ángulos iniciales
 
-    // Function to handle the transition animation
-    function arcTween(a) {
-        const i = d3.interpolate(this._current, a); // Interpolador entre ángulos actuales y nuevos
-        this._current = i(0); // Actualizar ángulos actuales
-        return t => arc(i(t)); // Devolver el valor interpolado para el tiempo 't'
-    }
+// Function to handle the transition animation
+function arcTween(a) {
+    const i = d3.interpolate(this._current, a); // Interpolador entre ángulos actuales y nuevos
+    this._current = i(0); // Actualizar ángulos actuales
+    return t => arc(i(t)); // Devolver el valor interpolado para el tiempo 't'
+}
 
-    // Update arcs with a transition animation
-    svg.selectAll("path")
-        .data(pie(data)) // Volver a vincular los datos con los elementos del DOM
-        .transition() // Iniciar transición
-        .duration(1000) // Duración de la transición en milisegundos
-        .attrTween("d", arcTween); // Aplicar interpolación a los atributos 'd'
-});
+// Update arcs with a transition animation
+svg.selectAll("path")
+    .data(pie(data)) // Volver a vincular los datos con los elementos del DOM
+    .transition() // Iniciar transición
+    .duration(1000) // Duración de la transición en milisegundos
+    .attrTween("d", arcTween); // Aplicar interpolación a los atributos 'd'
