@@ -32,7 +32,7 @@ body {
     text-align: center; /* Centrar el texto */
     color: #C2E0F2; /* Color del texto */
     font-size: 3em; /* Tamaño del texto */
-    font-weight: Light; /* Texto en Ligth */
+    font-weight: 300; /* Texto en Light */
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
@@ -43,27 +43,27 @@ body {
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
     font-size: 1.5em; /* Tamaño del texto */
-    font-weight: Light; /* Texto en Ligth */
+    font-weight: 300; /* Texto en Light */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos del gráfico */
 .chart-title {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: left; /* Texto izquierda */
+    text-align: left; /* Texto a la izquierda */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
-    font-weight: medium; /* Texto en medio */
+    font-weight: 500; /* Texto en medio */
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 .chart-description {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: left; /* Texto izquierd */
+    text-align: left; /* Texto a la izquierda */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
-    font-weight: medium; /* Texto en medio */
+    font-weight: 500; /* Texto en medio */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
@@ -73,13 +73,20 @@ body {
     margin: 10px 0; /* Márgenes superior e inferior */
 }
 
+/* Estilos para el nuevo contenedor de gráfico adicional */
+.additional-chart-container {
+    grid-column: 2 / span 5; /* Ocupa las 5 columnas del centro */
+    text-align: center; /* Centrar el texto */
+    margin: 10px 0; /* Márgenes superior e inferior */
+}
+
 /* Estilos del texto adicional */
 .additional-text {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: left; /* Texto izquierda */
+    text-align: left; /* Texto a la izquierda */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
-    font-weight: regular; /* Texto regular */
+    font-weight: 400; /* Texto regular */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
