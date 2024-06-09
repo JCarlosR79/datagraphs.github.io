@@ -13,7 +13,7 @@ const svg = d3.select("svg")
     .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
 // Crear escala de colores con tonos azules
-const color = d3.scaleOrdinal(["#1f77b4", "#aec7e8", "#ffbb78", "#ff7f0e"]);
+const color = d3.scaleOrdinal(["#1f77b4", "#aec7e8"]);
 
 // Definir función de arco
 const arc = d3.arc()
@@ -23,14 +23,14 @@ const arc = d3.arc()
 
 // Datos del gráfico
 const data = [
-    { label: 'A', value: 0.35 }, // Asegúrate de que los valores estén en formato decimal (0-1)
-    { label: 'B', value: 0.65 },
+    { label: 'A', value: 0.21 }, // Asegúrate de que los valores estén en formato decimal (0-1)
+    { label: 'B', value: 0.79 },
 ];
 
 // Crear fondo del arco
 svg.append("path")
     .datum({ endAngle: tau })
-    .style("fill", "#75A3BF") // Color azul para el fondo del arco
+    .style("fill", "white") // Color azul para el fondo del arco
     .attr("d", arc);
 
 // Crear arcos con datos
@@ -63,6 +63,19 @@ arcs.append("path")
             .style("font-size", "14px")
             .style("fill", "#C2E0F2") // Color azul claro para el texto del tooltip
             .text(d.label + ": " + (d.value * 100).toFixed(1) + "%");
+        
+        // Añadir una etiqueta fija con "79.4 por ciento" cuando el ratón está sobre el gráfico
+        if (d.label === 'B') {
+            svg.append("text")
+                .attr("class", "fixed-tooltip")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("text-anchor", "middle")
+                .style("font-family", "Roboto")
+                .style("font-size", "20px")
+                .style("fill", "white") // Color de la etiqueta fija
+                .text("79.4 por ciento");
+        }
     })
     .on("mouseout", function(event, d) {
         d3.select(this)
@@ -75,4 +88,5 @@ arcs.append("path")
                 .endAngle(d.value * tau)
             );
         svg.selectAll(".tooltip").remove();
+        svg.selectAll(".fixed-tooltip").remove();
     });
