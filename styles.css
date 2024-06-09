@@ -23,7 +23,7 @@ body {
 .header {
     grid-column: span 7; /* Ocupa las 7 columnas */
     background-color: #224459; /* Fondo del rectángulo */
-    height: 300px; /* Altura del rectángulo */
+    height: 400px; /* Altura del rectángulo */
 }
 
 /* Estilos del título */
@@ -44,22 +44,22 @@ body {
     color: white; /* Color del texto */
     font-size: 1.5em; /* Tamaño del texto */
     font-weight: Light; /* Texto en Ligth */
-    margin: 10px 0; /* Márgenes superior e inferior */
+    margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos del gráfico */
 .chart-title {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: center; /* Centrar el texto */
+    text-align: left; /* Texto izquierda */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
     font-weight: medium; /* Texto en medio */
-    margin: 10px 0; /* Márgenes superior e inferior */
+    margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 .chart-description {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: center; /* Centrar el texto */
+    text-align: left; /* Texto izquierd */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
     font-weight: medium; /* Texto en medio */
@@ -68,18 +68,18 @@ body {
 
 .chart-container {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: center; /* Centrar el texto */
+    text-align: left; /* Centrar el texto */
     margin: 10px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos del texto adicional */
 .additional-text {
     grid-column: 3 / span 3; /* Ocupa las 3 columnas del centro */
-    text-align: center; /* Centrar el texto */
+    text-align: left; /* Texto izquierda */
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
     font-weight: regular; /* Texto regular */
-    margin: 10px 0; /* Márgenes superior e inferior */
+    margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos del pie de página */
