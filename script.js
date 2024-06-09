@@ -34,7 +34,7 @@ const data = [
 // Crear fondo del arco
 svg.append("path")
     .datum({ endAngle: tau })
-    .style("fill", "#ddd")
+    .style("fill", "#75A3BF")
     .attr("d", arc);
 
 // Crear arcos con datos

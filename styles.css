@@ -32,6 +32,7 @@ body {
     text-align: center; /* Centrar el texto */
     color: #C2E0F2; /* Color del texto */
     font-size: 3em; /* Tamaño del texto */
+    font-weight: Light; /* Texto en Ligth */
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
@@ -42,7 +43,7 @@ body {
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
     font-size: 1.5em; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
+    font-weight: Light; /* Texto en Ligth */
     margin: 10px 0; /* Márgenes superior e inferior */
 }
 
