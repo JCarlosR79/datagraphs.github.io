@@ -54,6 +54,7 @@ body {
     color: white; /* Color del texto */
     font-size: 1em; /* Tamaño del texto */
     font-weight: medium; /* Texto en medio */
+    text-transform: uppercase; /* Texto en mayúsculas */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
