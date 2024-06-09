@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Page with Interactive Chart</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Enlace a Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> <!-- Enlace a Google Fonts -->
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@
         <h4 class="chart-title">En crisis</h4>
         <h5 class="chart-description">Territorio nacional afectado por algún grado de sequía</h5>
         <div class="chart-container">
-            <svg viewBox="0 0 500 500"></svg>
+            <svg id="chart1" viewBox="0 0 500 500"></svg>
         </div>
         <div class="additional-text">
             <h3>Estrés hídrico</h3>
@@ -38,6 +38,10 @@
                 Los daños que la actual sequía ha causado en el territorio mexicano son inmensos: presas y lagos en sus mínimos históricos, y manantiales, ríos, arroyos secos o en sus niveles mínimos.
                 
                 También grandes extensiones de tierras de labor no cuentan con agua y hay una importante reducción de los hatos ganaderos. En las ciudades ha habido un aumento sin precedentes en el reparto de agua “por tandeo”.</p>
+        </div>
+        <!-- Nuevo contenedor para el segundo gráfico -->
+        <div class="additional-chart-container">
+            <svg id="chart2" viewBox="0 0 928 500"></svg>
         </div>
         <div class="footer">
             <h6>Footer Content</h6>
