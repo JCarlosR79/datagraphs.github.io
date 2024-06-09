@@ -1,5 +1,3 @@
-// script.js
-
 // Dimensiones y configuración del gráfico
 const width = 500;
 const height = 500;
@@ -14,8 +12,8 @@ const svg = d3.select("svg")
     .append("g")
     .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-// Crear escala de colores
-const color = d3.scaleOrdinal(d3.schemeCategory10);
+// Crear escala de colores con tonos azules
+const color = d3.scaleOrdinal(["#1f77b4", "#aec7e8", "#ffbb78", "#ff7f0e"]);
 
 // Definir función de arco
 const arc = d3.arc()
@@ -25,16 +23,14 @@ const arc = d3.arc()
 
 // Datos del gráfico
 const data = [
-    { label: 'A', value: 0.3 },
-    { label: 'B', value: 0.7 },
-    { label: 'C', value: 0.45 },
-    { label: 'D', value: 0.85 }
+    { label: 'A', value: 0.35 }, // Asegúrate de que los valores estén en formato decimal (0-1)
+    { label: 'B', value: 0.65 },
 ];
 
 // Crear fondo del arco
 svg.append("path")
     .datum({ endAngle: tau })
-    .style("fill", "#75A3BF")
+    .style("fill", "#75A3BF") // Color azul para el fondo del arco
     .attr("d", arc);
 
 // Crear arcos con datos
@@ -46,7 +42,7 @@ const arcs = svg.selectAll(".arc")
 // Añadir los arcos al gráfico
 arcs.append("path")
     .attr("d", d => arc({ endAngle: d.value * tau }))
-    .attr("fill", d => color(d.label))
+    .attr("fill", d => color(d.label)) // Usar la escala de colores azules
     .each(function(d) { this._current = d; })
     .on("mouseover", function(event, d) {
         d3.select(this)
@@ -65,7 +61,7 @@ arcs.append("path")
             .attr("text-anchor", "middle")
             .style("font-family", "Roboto")
             .style("font-size", "14px")
-            .style("fill", "#C2E0F2")
+            .style("fill", "#C2E0F2") // Color azul claro para el texto del tooltip
             .text(d.label + ": " + (d.value * 100).toFixed(1) + "%");
     })
     .on("mouseout", function(event, d) {
