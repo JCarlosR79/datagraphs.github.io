@@ -96,20 +96,12 @@ body {
         grid-column: span 12;
     }
 
-    .title {
-        grid-column: span 10 / span 5;
+    .intro, .additional-text {
+        grid-column: 4 / span 6;
     }
 
-    .intro {
-        grid-column: span 10 / span 3;
-    }
-
-    .chart-container, .additional-chart-container {
-        grid-column: span 10 / span 5;
-    }
-
-    .additional-text {
-        grid-column: span 10 / span 3;
+    .chart-title, .chart-description, .chart-container, .additional-chart-container {
+        grid-column: 4 / span 6;
     }
 
     .footer {
@@ -130,20 +122,12 @@ body {
         grid-column: span 6;
     }
 
-    .title {
-        grid-column: span 5 / span 5;
+    .intro, .additional-text {
+        grid-column: 2 / span 6;
     }
 
-    .intro {
-        grid-column: span 6 / span 3;
-    }
-
-    .chart-container, .additional-chart-container {
-        grid-column: span 6 / span 5;
-    }
-
-    .additional-text {
-        grid-column: span 6 / span 3;
+    .chart-title, .chart-description, .chart-container, .additional-chart-container {
+        grid-column: 2 / span 6;
     }
 
     .footer {
@@ -164,19 +148,11 @@ body {
         grid-column: span 2;
     }
 
-    .title {
+    .intro, .additional-text {
         grid-column: span 2;
     }
 
-    .intro {
-        grid-column: span 2;
-    }
-
-    .chart-container, .additional-chart-container {
-        grid-column: span 2;
-    }
-
-    .additional-text {
+    .chart-title, .chart-description, .chart-container, .additional-chart-container {
         grid-column: span 2;
     }
 

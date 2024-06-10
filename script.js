@@ -2,9 +2,10 @@
 
 // Función para crear el primer gráfico
 function createFirstChart() {
-    const width1 = Math.min(document.querySelector(".chart-container").clientWidth, 500);
-    const height1 = Math.min(document.querySelector(".chart-container").clientHeight, 500);
-    const outerRadius1 = height1 / 2 - 10;
+    const containerWidth = document.querySelector(".chart-container").clientWidth;
+    const width1 = containerWidth;
+    const height1 = 500;
+    const outerRadius1 = Math.min(width1, height1) / 2 - 10;
     const innerRadius1 = outerRadius1 * 0.75;
     const tau1 = 2 * Math.PI;
 
@@ -100,7 +101,8 @@ function createSecondChart() {
     d3.json("data.json").then(function (data2) {
 
         // Dimensiones y configuración del segundo gráfico
-        const containerWidth = Math.min(document.querySelector(".additional-chart-container").clientWidth, 928);
+        const containerWidth = document.querySelector(".additional-chart-container").clientWidth;
+        const width2 = containerWidth;
         const marginTop2 = 30;
         const marginRight2 = 10;
         const marginBottom2 = 0;
@@ -116,7 +118,7 @@ function createSecondChart() {
         // Preparar las escalas para las codificaciones posicionales y de color
         const x2 = d3.scaleLinear()
             .domain([0, 100])
-            .range([marginLeft2, containerWidth - marginRight2]);
+            .range([marginLeft2, width2 - marginRight2]);
 
         const y2 = d3.scaleBand()
             .domain(data2.map(d => d.state))
@@ -133,9 +135,9 @@ function createSecondChart() {
 
         // Crear el contenedor SVG
         const svg2 = d3.select("#chart2")
-            .attr("width", containerWidth)
+            .attr("width", width2)
             .attr("height", height2)
-            .attr("viewBox", [0, 0, containerWidth, height2])
+            .attr("viewBox", [0, 0, width2, height2])
             .attr("style", "max-width: 100%; height: auto;");
 
         // Añadir un grupo para cada serie y un rectángulo para cada elemento en la serie
@@ -157,7 +159,7 @@ function createSecondChart() {
         // Añadir el eje horizontal
         svg2.append("g")
             .attr("transform", `translate(0,${marginTop2})`)
-            .call(d3.axisTop(x2).ticks(containerWidth / 100, "%"))
+            .call(d3.axisTop(x2).ticks(width2 / 100, "%"))
             .call(g => g.selectAll(".domain").remove());
 
         // Añadir el eje vertical
