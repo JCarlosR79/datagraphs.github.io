@@ -2,7 +2,7 @@
 body {
     background-color: #011826; /* Fondo negro */
     color: whitesmoke; /* Texto blanco */
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Playfair Display', serif;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -27,9 +27,8 @@ body {
 .title {
     text-align: center; /* Centrar el texto */
     color: #C2E0F2; /* Color del texto */
-    font-size: 3em; /* Tamaño del texto */
-    font-weight: 300; /* Texto en Light */
-    text-transform: uppercase; /* Texto en mayúsculas */
+    font-size: 32px; /* Tamaño del texto */
+    font-family: 'Playfair Display', serif; /* Tipografía Playfair Display regular */
     margin: 20px 0; /* Márgenes superior e inferior */
 }
 
@@ -37,26 +36,27 @@ body {
 .intro {
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
-    font-size: 1.5em; /* Tamaño del texto */
-    font-weight: 300; /* Texto en Light */
+    font-size: 18px; /* Tamaño del texto */
+    font-family: 'Playfair Display', serif; /* Tipografía Playfair Display medium */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos del gráfico */
 .chart-title {
-    text-align: left; /* Texto a la izquierda */
+    text-align: center; /* Texto centrado */
     color: white; /* Color del texto */
-    font-size: 1em; /* Tamaño del texto */
-    font-weight: 500; /* Texto en medio */
+    font-size: 14px; /* Tamaño del texto */
+    font-family: 'Roboto', sans-serif; /* Tipografía Roboto bold */
+    font-weight: bold;
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
 .chart-description {
-    text-align: left; /* Texto a la izquierda */
+    text-align: center; /* Texto centrado */
     color: white; /* Color del texto */
-    font-size: 1em; /* Tamaño del texto */
-    font-weight: 500; /* Texto en medio */
+    font-size: 14px; /* Tamaño del texto */
+    font-family: 'Roboto', sans-serif; /* Tipografía Roboto regular */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
@@ -66,11 +66,11 @@ body {
 }
 
 /* Estilos del texto adicional */
-.additional-text {
+.text {
     text-align: left; /* Texto a la izquierda */
     color: white; /* Color del texto */
-    font-size: 1em; /* Tamaño del texto */
-    font-weight: 400; /* Texto regular */
+    font-size: 14px; /* Tamaño del texto */
+    font-family: 'Playfair Display', serif; /* Tipografía Playfair Display regular */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
 
@@ -93,19 +93,31 @@ body {
     }
 
     .header {
+        grid-column: span 12; /* Ocupa las 12 columnas */
+    }
+
+    .title {
+        grid-column: 3 / span 8; /* Ocupa las 8 columnas centrales */
+    }
+
+    .intro {
         grid-column: 4 / span 6; /* Ocupa las 6 columnas centrales */
     }
 
-    .intro, .additional-text {
+    .chart-title, .chart-description, .chart-container {
+        grid-column: 5 / span 4; /* Ocupa las 4 columnas centrales */
+    }
+
+    .text, .additional-chart-container {
         grid-column: 4 / span 6; /* Ocupa las 6 columnas centrales */
     }
 
-    .chart-title, .chart-description, .chart-container, .additional-chart-container {
-        grid-column: 4 / span 6; /* Ocupa las 6 columnas centrales */
+    .additional-chart-container {
+        grid-column: 3 / span 8; /* Ocupa las 8 columnas centrales */
     }
 
     .footer {
-        grid-column: span 12;
+        grid-column: span 12; /* Ocupa las 12 columnas */
     }
 }
 
@@ -119,19 +131,27 @@ body {
     }
 
     .header {
-        grid-column: 1 / span 6; /* Ocupa las 6 columnas */
+        grid-column: span 6; /* Ocupa las 6 columnas */
     }
 
-    .intro, .additional-text {
-        grid-column: 1 / span 6; /* Ocupa las 6 columnas */
+    .title {
+        grid-column: span 6; /* Ocupa las 6 columnas */
+    }
+
+    .intro {
+        grid-column: span 6; /* Ocupa las 6 columnas */
     }
 
     .chart-title, .chart-description, .chart-container, .additional-chart-container {
-        grid-column: 1 / span 6; /* Ocupa las 6 columnas */
+        grid-column: span 6; /* Ocupa las 6 columnas */
+    }
+
+    .text {
+        grid-column: span 6; /* Ocupa las 6 columnas */
     }
 
     .footer {
-        grid-column: span 6;
+        grid-column: span 6; /* Ocupa las 6 columnas */
     }
 }
 
@@ -148,7 +168,11 @@ body {
         grid-column: span 2; /* Ocupa las 2 columnas */
     }
 
-    .intro, .additional-text {
+    .title {
+        grid-column: span 2; /* Ocupa las 2 columnas */
+    }
+
+    .intro {
         grid-column: span 2; /* Ocupa las 2 columnas */
     }
 
@@ -156,7 +180,11 @@ body {
         grid-column: span 2; /* Ocupa las 2 columnas */
     }
 
+    .text {
+        grid-column: span 2; /* Ocupa las 2 columnas */
+    }
+
     .footer {
-        grid-column: span 2;
+        grid-column: span 2; /* Ocupa las 2 columnas */
     }
 }
