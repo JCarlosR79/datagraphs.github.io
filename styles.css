@@ -27,9 +27,9 @@ body {
 .title {
     text-align: center; /* Centrar el texto */
     color: #C2E0F2; /* Color del texto */
-    font-size: 32px; /* Tamaño del texto */
+    font-size: 40px; /* Tamaño del texto */
     font-family: 'Playfair Display', serif; /* Tipografía Playfair Display regular */
-    margin: 20px 0; /* Márgenes superior e inferior */
+    margin: 10px 0; /* Márgenes superior e inferior */
 }
 
 /* Estilos de la introducción */
@@ -69,7 +69,7 @@ body {
 .text {
     text-align: left; /* Texto a la izquierda */
     color: white; /* Color del texto */
-    font-size: 14px; /* Tamaño del texto */
+    font-size: 16px; /* Tamaño del texto */
     font-family: 'Playfair Display', serif; /* Tipografía Playfair Display regular */
     margin: 5px 0; /* Márgenes superior e inferior */
 }
@@ -78,7 +78,7 @@ body {
 .footer {
     text-align: center; /* Centrar el texto */
     color: white; /* Color del texto */
-    font-size: 0.5em; /* Tamaño del texto */
+    font-size: 14px; /* Tamaño del texto */
     margin-top: auto; /* Empujar el footer hacia abajo */
     padding: 10px; /* Padding interno */
 }
